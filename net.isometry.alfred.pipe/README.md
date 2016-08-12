@@ -23,6 +23,8 @@ A number of built-in pipelines are [included](https://raw.github.com/isometry/al
 
 `| alias tac=sed '1!G;h;$!d'@@`
 
+You can delete custom aliases by actioning on them while holding the `alt` key.
+
 ## Contributions & Thanks
 
 - ctwise

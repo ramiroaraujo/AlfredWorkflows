@@ -119,3 +119,16 @@ def complete(query, maxresults=_MAX_RESULTS):
         results.extend(matches)
 
     return alfred.xml(results, maxresults=maxresults)
+
+def remove(query):
+    aliases = fetch_aliases()
+    keyname = ''
+    for key, value in aliases.items():
+        if value == query:
+            aliases.pop(key, None)
+            keyname = key
+
+    file = path.join(alfred.work(volatile=False), _ALIASES_FILE)
+    json.dump(aliases, open(file, 'w'), indent=4, separators=(',', ': '))
+
+    return keyname
